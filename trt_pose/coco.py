@@ -427,11 +427,11 @@ class CocoHumanPoseEval(object):
             for i in range(object_counts):
                 object = objects[i]
                 score = 0.0
-                kps = [0]*(17*3)
+                kps = [0]*(6*3)
                 x_mean = 0
                 y_mean = 0
                 cnt = 0
-                for j in range(17):
+                for j in range(6):
                     k = object[j]
                     if k >= 0:
                         peak = peaks[j][k]
@@ -457,7 +457,7 @@ class CocoHumanPoseEval(object):
                     'image_id': imgId,
                     'category_id': 1,
                     'keypoints': kps,
-                    'score': score / 17.0
+                    'score': score / 6.0
                 }
                 results.append(ann)
             if n % 100 == 0:
